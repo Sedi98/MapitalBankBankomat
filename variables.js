@@ -24,3 +24,4 @@ let disabled=false;
 
 
 let comission = 0;
+let comissionPercent = 0;
