@@ -16,6 +16,8 @@ const setMoney = (value) => {
 
 const customValue = () => {
   moneyValue = 0;
+  comission = 0;
+  comissionText.innerHTML = ``;
   moneyInputContainer.style.display = "none" ? "block" : "none";
   moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
   disabled = true;
