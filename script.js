@@ -3,7 +3,9 @@ cashText.innerHTML = `Balans : ${balance} AZN`;
 const setMoney = (value) => {
   if (!disabled) {
     moneyValue = value;
-    comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN (${comissionPercent*100}%)`;
+    comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN (${
+      comissionPercent * 100
+    }%)`;
     moneyValue = moneyValue - comissionCalc();
     console.log(moneyValue);
     moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
@@ -37,18 +39,28 @@ const comissionCalc = () => {
     comissionPercent = 0.01;
     comission = moneyValue * comissionPercent;
   } else if (moneyValue >= 50 && moneyValue < 100) {
-    comissionPercent = 0.02
+    comissionPercent = 0.02;
     comission = moneyValue * comissionPercent;
   } else if (moneyValue >= 100) {
-    comissionPercent = 0.03
+    comissionPercent = 0.03;
     comission = moneyValue * comissionPercent;
   }
   return comission.toFixed(2);
 };
 
+const showFooterYear = () => {
+  year = new Date().getFullYear();
+  footerYear.innerHTML = year == 2024 ? "" : `${year}`;
+};
+
+
+showFooterYear();
+
 numInput.addEventListener("keyup", (e) => {
   moneyValue = Number(e.target.value);
-  comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN  (${comissionPercent*100}%)`;
+  comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN  (${
+    comissionPercent * 100
+  }%)`;
   moneyValue = moneyValue - comissionCalc();
   moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
 });

@@ -25,3 +25,5 @@ let disabled=false;
 
 let comission = 0;
 let comissionPercent = 0;
+
+let year = new Date().getFullYear();
