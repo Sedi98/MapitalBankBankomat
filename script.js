@@ -3,10 +3,11 @@ cashText.innerHTML = `Balans : ${balance} AZN`;
 const setMoney = (value) => {
   if (!disabled) {
     moneyValue = value;
-    moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${
-      moneyValue - comissionCalc()
-    } AZN`;
-    comissionText.innerHTML = `Komissiya : ${comission} AZN`;
+    comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN`;
+    moneyValue = moneyValue - comissionCalc();
+    console.log(moneyValue);
+    moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
+
     numInput.focus();
   } else {
     return false;
@@ -28,7 +29,6 @@ const domReset = () => {
 };
 
 const comissionCalc = () => {
- 
   if (moneyValue < 10) {
     comission = 0;
   } else if (moneyValue >= 10 && moneyValue < 50) {
@@ -42,9 +42,10 @@ const comissionCalc = () => {
 };
 
 numInput.addEventListener("keyup", (e) => {
-  moneyValue = (Number(e.target.value) - comissionCalc()).toFixed(2);
+  moneyValue = Number(e.target.value);
+  comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN`;
+  moneyValue = moneyValue - comissionCalc();
   moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
-  comissionText.innerHTML = `Komissiya : ${comission.toFixed(2)} AZN`;
 });
 
 btnCalculate.addEventListener("click", () => {
