@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mapital bank</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Mapital bank</h1>
+      <p>Nəğdlaşdırmaq istədiyin məbləği seç</p>
+      <h2 class="cashText">Balans 0 AZN</h2>
+      <div class="moneyList">
+        <div class="moneyItem" onclick="setMoney(1)">1 AZN</div>
+        <div class="moneyItem" onclick="setMoney(3)">3 AZN</div>
+        <div class="moneyItem" onclick="setMoney(5)">5 AZN</div>
+        <div class="moneyItem" onclick="setMoney(10)">10 AZN</div>
+        <div class="moneyItem" onclick="setMoney(15)">15 AZN</div>
+        <div class="moneyItem" onclick="setMoney(20)">20 AZN</div>
+        <div class="moneyItem" onclick="setMoney(50)">50 AZN</div>
+        <div class="moneyItem" onclick="setMoney(100)">100 AZN</div>
+        <div class="moneyItem" onclick="customValue()">Digər məbləğ >></div>
+      </div>
+      <div class="moneyInputContainer">
+        <input
+          type="number"
+          name="numInput"
+          id="numInput"
+          class="numInput"
+          min="0"
+        />
+      </div>
+      <div>
+        <h5 class="comissionText"></h5>
+        <h3 class="moneyShowText">Nağdlaşdırılacaq məbləğ :</h3>
+      </div>
+
+      <div class="btnContainer">
+        <button class="btnCalculate">Nağdlaşdır</button>
+      </div>
+    </main>
+
+    <script src="variables.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
