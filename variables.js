@@ -4,7 +4,7 @@ let moneyShowText = document.querySelector(".moneyShowText");
 
 let comissionText = document.querySelector(".comissionText");
 
-let moneyItems = document.querySelector(".moneyItem");
+let moneyItems = document.querySelectorAll(".moneyItem");
 
 let numInput = document.querySelector(".numInput");
 
@@ -12,6 +12,8 @@ let btnCalculate = document.querySelector(".btnCalculate");
 
 
 let moneyInputContainer = document.querySelector(".moneyInputContainer");
+
+let yearText = document.querySelector(".yearText");
 
 
 let balance= 200;
@@ -27,3 +29,5 @@ let comission = 0;
 let comissionPercent = 0;
 
 let year = new Date().getFullYear();
+
+yearText.innerHTML = year == 2024 ? "" : `-${year}`

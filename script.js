@@ -17,18 +17,23 @@ const setMoney = (value) => {
 };
 
 const customValue = () => {
+  domReset();
   moneyValue = 0;
   comission = 0;
   comissionText.innerHTML = ``;
   moneyInputContainer.style.display = "none" ? "block" : "none";
   moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ : ${moneyValue} AZN`;
   disabled = true;
+  for (let i = 0; i < moneyItems.length - 1; i++) {
+    moneyItems[i].setAttribute("disabled", "true");
+  }
 };
 
 const domReset = () => {
   cashText.innerHTML = `Balans : ${balance} AZN`;
   moneyInputContainer.style.display = "none";
   moneyShowText.innerHTML = `Nağdlaşdırılacaq məbləğ :`;
+  numInput.value = "";
   disabled = false;
 };
 
@@ -48,14 +53,6 @@ const comissionCalc = () => {
   return comission.toFixed(2);
 };
 
-const showFooterYear = () => {
-  year = new Date().getFullYear();
-  footerYear.innerHTML = year == 2024 ? "" : `${year}`;
-};
-
-
-showFooterYear();
-
 numInput.addEventListener("keyup", (e) => {
   moneyValue = Number(e.target.value);
   comissionText.innerHTML = `Komissiya : ${comissionCalc()} AZN  (${
@@ -67,7 +64,7 @@ numInput.addEventListener("keyup", (e) => {
 
 btnCalculate.addEventListener("click", () => {
   if (balance >= moneyValue) {
-    balance = balance - moneyValue;
+    balance = balance - (comissionCalc() + moneyValue);
     cashText.innerHTML = `Balans : ${balance} AZN`;
     domReset();
     alert(`Nağdlaşdırıldı ${moneyValue} AZN . Qalıq balans : ${balance} AZN`);
