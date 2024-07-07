@@ -64,7 +64,8 @@ numInput.addEventListener("keyup", (e) => {
 
 btnCalculate.addEventListener("click", () => {
   if (balance >= moneyValue) {
-    balance = balance - (comissionCalc() + moneyValue);
+    console.log(Number(comission));
+    balance = balance - ((Number(moneyValue)+ Number(comission)));
     cashText.innerHTML = `Balans : ${balance} AZN`;
     domReset();
     alert(`Nağdlaşdırıldı ${moneyValue} AZN . Qalıq balans : ${balance} AZN`);
